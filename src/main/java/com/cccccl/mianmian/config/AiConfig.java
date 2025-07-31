@@ -22,7 +22,8 @@ public class AiConfig {
      */
     @Bean
     public ArkService aiService() {
-//        String apiKey = "c54793da-e40b-4cb2-8d8a-c337aefcbae8";
+//        String apiKey = "";
+        System.out.println("+++++++++++++++:"+apiKey);
         String baseUrl = "https://ark.cn-beijing.volces.com/api/v3";
         ConnectionPool connectionPool = new ConnectionPool(5, 1, TimeUnit.SECONDS);
         Dispatcher dispatcher = new Dispatcher();

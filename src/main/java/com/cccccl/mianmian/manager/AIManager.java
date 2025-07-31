@@ -28,6 +28,10 @@ public class AIManager {
         return doChat("", userPrompt, DEFAULT_MODEL);
     }
 
+    public String doChat(String userPrompt, String systemPrompt) {
+        return doChat(systemPrompt, userPrompt, DEFAULT_MODEL);
+    }
+
     /**
      * AI 调用接口，返回响应字符串
      * @param systemPrompt
