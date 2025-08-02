@@ -24,12 +24,32 @@ public class AIManager {
     private ArkService arkService;
     private final String DEFAULT_MODEL = "deepseek-v3-250324";
 
+    /**
+     * AI 调用接口，返回响应字符串
+     * @param userPrompt
+     * @return
+     */
     public String doChat(String userPrompt) {
         return doChat("", userPrompt, DEFAULT_MODEL);
     }
 
+    /**
+     * AI 调用接口，返回响应字符串
+     * @param systemPrompt
+     * @param userPrompt
+     * @return
+     */
     public String doChat(String userPrompt, String systemPrompt) {
         return doChat(systemPrompt, userPrompt, DEFAULT_MODEL);
+    }
+
+    /**
+     * AI 调用接口，返回响应字符串（允许传入自定义的消息列表, 使用默认模型）
+     * @param messages
+     * @return
+     */
+    public String doChat(List<ChatMessage> messages) {
+        return doChat(messages, DEFAULT_MODEL);
     }
 
     /**
@@ -46,6 +66,18 @@ public class AIManager {
         final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER).content(userPrompt).build();
         messages.add(systemMessage);
         messages.add(userMessage);
+//        构造请求
+        return doChat(messages, model);
+    }
+
+    /**
+     * AI 调用接口，返回响应字符串（允许传入自定义的消息列表）
+     * @param messages
+     * @param model
+     * @return
+     */
+    public String doChat(List<ChatMessage> messages, String model) {
+//        final List<ChatMessage> messages = new ArrayList<>();
 //        构造请求
         ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest.builder()
                 // 指定您创建的方舟推理接入点 ID，此处已帮您修改为您的推理接入点 ID

@@ -358,9 +358,9 @@ public class UserController {
     @GetMapping("/get/sign_in")
     public BaseResponse<List<Integer>> getUserSignInRecord(Integer year, HttpServletRequest request) {
         // 必须要登录才能获取
-//        User loginUser = userService.getLoginUser(request);
-//        List<Integer> userSignInRecord = userService.getUserSignInRecord(loginUser.getId(), year);
-        List<Integer> userSignInRecord = userService.getUserSignInRecord(12, year);
+        User loginUser = userService.getLoginUser(request);
+        List<Integer> userSignInRecord = userService.getUserSignInRecord(loginUser.getId(), year);
+//        List<Integer> userSignInRecord = userService.getUserSignInRecord(12, year);
         return ResultUtils.success(userSignInRecord);
     }
 
