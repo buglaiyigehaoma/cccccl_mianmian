@@ -4,7 +4,8 @@
 
 <font style="color:rgb(31, 35, 40);">管理员可以创建题库、题目和题解；用户可以注册登录、分词检索题目、在线刷题并查看刷题记录日历图。此外，系统使用数据库连接词、热 key 探测、redis 缓存、bitmap数据结构来提升性能。通过流量控制、熔断、动态 IP 黑名单过滤、分级反爬虫策略来提升系统和内容的安全性。</font><font style="color:black;">基于 DeepSeek + 火山引擎 SDK，实现 AI 生成题目题解功能和 AI 模拟面试功能。</font>
 
-需求分析可以明确要做的需求，从而明确开发计划。
+<img width="2523" height="1478" alt="image" src="https://github.com/user-attachments/assets/0f477c2b-ed0a-4d88-a9a7-61b1547cfb35" />
+
 
 ## 二. 功能介绍
 1. **管理员功能**
